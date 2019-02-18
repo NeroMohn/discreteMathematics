@@ -1,11 +1,10 @@
 
 let fs = require = ("fs");
 
-function txtInput(){        //.txt file reader
-   // let text = fs.readFileSync(textDir).toString*('utf-8');
-
-
+function txtInput(){
 let file = document.getElementById("file").files[0];
+
+let groups = [{name:'', elements: [] }];
 
 	  const fileReader = new FileReader();
 
@@ -23,4 +22,18 @@ let file = document.getElementById("file").files[0];
 		var content = document.getElementById("inputTextToSave").value;
 		uriContent = "data:application/octet-stream," + encodeURIComponent(content);
 		document.getElementById("dlink").innerHTML = "<a href=" + uriContent + " download=\"savedfile.txt\">Here is the download link</a>";
-    }
+		}
+		
+
+	function setGroup(textFromFileLoaded){
+
+		for (let i=0; i<textFromFileLoaded.lenght;i++){
+			if(textFromFileLoaded.charAt(i).toUpperCase()){
+				groups.name.push(textFromFileLoaded.charAt(i));
+				while(textFromFileLoaded.charAt(i++).toLowerCase){
+					groups.elements.push(textFromFileLoaded.charAt(i))
+				}
+			}
+		}
+
+	}
