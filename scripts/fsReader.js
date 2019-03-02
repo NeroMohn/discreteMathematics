@@ -4,7 +4,10 @@ let fs = require = ("fs");
 function txtInput(){
 let file = document.getElementById("file").files[0];
 
-let groups = [{name:'', elements: [] }];
+let groups = [];
+let elements = [];
+let values = [];
+
 
 	  const fileReader = new FileReader();
 
@@ -25,15 +28,16 @@ let groups = [{name:'', elements: [] }];
 		}
 		
 
-	function setGroup(textFromFileLoaded){
+	function setGroups(textFromFileLoaded){
 
 		for (let i=0; i<textFromFileLoaded.lenght;i++){
-			if(textFromFileLoaded.charAt(i).toUpperCase()){
-				groups.name.push(textFromFileLoaded.charAt(i));
-				while(textFromFileLoaded.charAt(i++).toLowerCase){
+			if(textFromFileLoaded.charAt(i) == textFromFileLoaded.charAt(itoUpperCase())){
+				groups.push(textFromFileLoaded.charAt(i));
+				while(textFromFileLoaded.charAt(i++)){
 					groups.elements.push(textFromFileLoaded.charAt(i))
 				}
-			}
+			}else
+			{}
 		}
 
 	}
