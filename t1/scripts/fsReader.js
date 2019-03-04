@@ -37,11 +37,13 @@ let file = document.getElementById("file").files[0];
 		textForUse = textFromFileLoadedGlobal;
 		textForUse = textForUse.replace(/ /g,"");
 		textForUse = textForUse.replace( /\n/g,"");
-		//console.log(textForUse);
-
+		let count1 = 0;
+		let end = textForUse.indexOf("FIM");
+		console.log(end);
 		let j = 0;
 
-		for (let i=0; i<textForUse.lenght;i++){
+		for (let i=0; i<end;i++){
+			console.log(i+"\n")
 			if(textForUse.charAt(i) == textForUse.charAt(toUpperCase())){
 				groups.push(textFromFileLoaded.charAt(i));
 				i+=2;
