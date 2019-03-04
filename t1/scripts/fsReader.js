@@ -19,6 +19,7 @@ let file = document.getElementById("file").files[0];
 		  textFromFileLoadedGlobal = textFromFileLoaded;
 
 		  document.getElementById("inputTextToSave").value = textFromFileLoadedGlobal;
+		  console.log("haha \n hehe");
 	  }
 
 	  fileReader.readAsText(file, "UTF-8");
@@ -32,12 +33,12 @@ let file = document.getElementById("file").files[0];
 	function setGroups(){
 
 		let textForUse;
-		let enterRef = String.fromCharCode(13);
-		document.getElementById("inputGroups").value = textFromFileLoadedGlobal;
+		
 		textForUse = textFromFileLoadedGlobal;
-		textForUse = textForUse.replace(" ","");
-		textForUse = textForUse.replace(enterRef,"");
+		textForUse = textForUse.replace(/ /g,"");
+		textForUse = textForUse.replace( /\n/g,"");
 		//console.log(textForUse);
+
 		let j = 0;
 
 		for (let i=0; i<textForUse.lenght;i++){
