@@ -1,38 +1,41 @@
 
 let fs = require = ("fs");
+let textFromFileLoadedGlobal;
+let groups = [];
+let elements = [];
+let values = [];
 
 function txtInput(){
 let file = document.getElementById("file").files[0];
 
-let groups = [];
-let elements = [];
-let values = [];
+
 
 
 	  const fileReader = new FileReader();
 
 	  fileReader.onload = function(fileLoadedEvent){
 		  let textFromFileLoaded = fileLoadedEvent.target.result; //The event.result property contains the last/previous value returned by an event handler triggered by the specified event. From w3schools
-		  document.getElementById("inputTextToSave").value = textFromFileLoaded;
+
+		  textFromFileLoadedGlobal = textFromFileLoaded;
+
+		  document.getElementById("inputTextToSave").value = textFromFileLoadedGlobal;
 	  }
 
 	  fileReader.readAsText(file, "UTF-8");
 
 	  console.log(fileReader);
+
+
     }
    
-	/*
-	function savefile(){
-		var content = document.getElementById("inputTextToSave").value;
-		uriContent = "data:application/octet-stream," + encodeURIComponent(content);
-		document.getElementById("dlink").innerHTML = "<a href=" + uriContent + " download=\"savedfile.txt\">Here is the download link</a>";
-		}
-	*/	
 
-	function setGroups(textFromFileLoaded){
+	function setGroups(){
+
 		let textForUse;
 		let enterRef = String.fromCharCode(13);
-		textForUse = textFromFileLoaded.replace(" ","");
+		document.getElementById("inputGroups").value = textFromFileLoadedGlobal;
+		textForUse = textFromFileLoadedGlobal;
+		textForUse = textForUse.replace(" ","");
 		textForUse = textForUse.replace(enterRef,"");
 		//console.log(textForUse);
 		let j = 0;
