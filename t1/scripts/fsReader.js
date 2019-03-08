@@ -16,13 +16,24 @@ let file = document.getElementById("file").files[0];
 		  textFromFileLoadedGlobal = textFromFileLoaded;
 
 		  document.getElementById("inputTextToSave").value = textFromFileLoadedGlobal;
-		  console.log("haha \n hehe");
 	  }
 
 	  fileReader.readAsText(file, "UTF-8");
 
-	  console.log(fileReader);
     }
+
+	function confereGrupo(caractere){
+		switch (caractere){
+			case "a" || "b" || "c"|| "d"|| "e"|| "f"||
+			 "g"|| "h"|| "i"|| "j"|| "k"|| "l"|| "m"||
+			  "n"|| "o"|| "p"|| "q"|| "r"|| "s"|| "t"||
+			   "u"|| "v"|| "w"|| "x"|| "y"|| "z":
+			return true;
+			default:
+			return false;
+		}
+		
+	}
 
 	function setGroups(){
 
@@ -32,25 +43,29 @@ let file = document.getElementById("file").files[0];
 		textForUse = textForUse.replace(/ /g,"");
 		textForUse = textForUse.replace( /\n/g,"");
 		let count1 = 0;
-		let end = textForUse.indexOf("FIM");
-		console.log(end);
+		let end = textForUse.toString();
 		let j = 0;
-
-		for (let i=0; i<end;i++){
-			console.log(i+"\n")
-			if(textForUse.charAt(i) == textForUse.charAt(i).toUpperCase()){
-				console.log(groups)
-				groups.push(textForUse.charAt(i));
-				console.log(groups)
-				i+=3;
+		count1 = end.length;
+		i=0;
+		while(i < count1){
+			if(textForUse.charAt(i) == textForUse.charAt(i).toUpperCase() && confereGrupo(textForUse.charAt(i))){
 				console.log(textForUse.charAt(i));
+				groups.push(textForUse.charAt(i));
+				let subArray = new Array();
 				while(textForUse.charAt(i)!="}"){
-					let subArray = new Array();
-					subArray.push(textForUse.charAt(i));
+					if(textForUse.charAt(i)!="," && textForUse.charAt(i)!="{"){
+						subArray.push(textForUse.charAt(i));
+						console.log("oi "+i);
+					}
+					i++;
 				}
-				values[j].splice(subArray);
+				Array.prototype.splice(j, subArray, values);
 				j++;
+				i++;
 			}
+			i++;
+			//console.log(groups);
 		}
+
 	document.getElementById("inputGroups").value = groups;
 	}
