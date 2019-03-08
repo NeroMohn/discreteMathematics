@@ -8,9 +8,6 @@ let values = [];
 function txtInput(){
 let file = document.getElementById("file").files[0];
 
-
-
-
 	  const fileReader = new FileReader();
 
 	  fileReader.onload = function(fileLoadedEvent){
@@ -25,10 +22,7 @@ let file = document.getElementById("file").files[0];
 	  fileReader.readAsText(file, "UTF-8");
 
 	  console.log(fileReader);
-
-
     }
-   
 
 	function setGroups(){
 
@@ -44,13 +38,18 @@ let file = document.getElementById("file").files[0];
 
 		for (let i=0; i<end;i++){
 			console.log(i+"\n")
-			if(textForUse.charAt(i) == textForUse.charAt(toUpperCase())){
-				groups.push(textFromFileLoaded.charAt(i));
-				i+=2;
+			if(textForUse.charAt(i) == textForUse.charAt(i).toUpperCase()){
+				console.log(groups)
+				groups.push(textForUse.charAt(i));
+				console.log(groups)
+				i+=3;
+				console.log(textForUse.charAt(i));
 				while(textForUse.charAt(i)!="}"){
-					values[j].push(textFromFileLoaded.charAt(i));
+					let subArray = new Array();
+					subArray.push(textForUse.charAt(i));
 				}
-			j++;	
+				values[j].splice(subArray);
+				j++;
 			}
 		}
 	document.getElementById("inputGroups").value = groups;
