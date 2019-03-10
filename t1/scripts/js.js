@@ -76,3 +76,8 @@ function setGroups() {
 		document.getElementById("inputValues").value += grouped[i][0] + " = " + values[i];
 	}
 }
+
+function returnValue(group,index){
+	let value = values[group].split(",");
+	return value[index];
+}
