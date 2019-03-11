@@ -73,11 +73,39 @@ function setGroups() {
 	document.getElementById("inputGroups").value = groups;
 	document.getElementById("inputElements").value = elements;
 	for (i = 0; i < grouped.length; i++) {
-		document.getElementById("inputValues").value += grouped[i][0] + " = " + values[i];
+		document.getElementById("inputValues").value += "[" + i + "] " + grouped[i][0] + " = " + values[i];
 	}
 }
 
-function returnValue(group,index){
+function returnValue(group, index) {
 	let value = values[group].split(",");
 	return value[index];
 }
+function returnValues(group) {
+	let splitedValues;
+	splitedValues = values[group];
+	splitedValues.split(",");
+	return splitedValues;
+}
+
+function pertence() {
+	element1 = document.getElementById("pertence1").value;
+	element2 = document.getElementById("pertence2").value;
+	index1 = document.getElementById("pertenceIndex1").value;
+	let size = returnValues(element2);
+	console.log(element1);
+	console.log(element2);
+	console.log(returnValue(element1, index1));
+	if (index1 != "" || index2 !== "" || index1 !== null) {
+		for (i = 0; i < size.length; i++) {
+			console.log(returnValue(element2, i));
+			if (returnValue(element1, index1) == returnValue(element2, i)) {
+				alert(returnValue(element1, index1) + " pertence à " + grouped[element2][0]);
+				return true;
+			}
+		}
+	}
+	alert(returnValue(element1, index1) + " não pertence à " + grouped[element2][0]);
+	return false
+}	
+
