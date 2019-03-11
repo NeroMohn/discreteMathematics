@@ -88,24 +88,39 @@ function returnValues(group) {
 	return splitedValues;
 }
 
-function pertence() {
-	element1 = document.getElementById("pertence1").value;
-	element2 = document.getElementById("pertence2").value;
-	index1 = document.getElementById("pertenceIndex1").value;
-	let size = returnValues(element2);
-	console.log(element1);
-	console.log(element2);
-	console.log(returnValue(element1, index1));
-	if (index1 != "" || index2 !== "" || index1 !== null) {
-		for (i = 0; i < size.length; i++) {
-			console.log(returnValue(element2, i));
-			if (returnValue(element1, index1) == returnValue(element2, i)) {
-				alert(returnValue(element1, index1) + " pertence à " + grouped[element2][0]);
-				return true;
-			}
-		}
-	}
-	alert(returnValue(element1, index1) + " não pertence à " + grouped[element2][0]);
-	return false
-}	
+function pertence(element1, element2, index1) {
 
+	if (index1 == "" || index1 == null || element1 == null || element1 == "" || element2 == null || element2 == "") {
+		element1 = document.getElementById("pertence1").value;
+		element2 = document.getElementById("pertence2").value;
+		index1 = document.getElementById("pertenceIndex1").value;
+	}
+
+	let size = returnValues(element2);
+	let value1 = returnValue(element1, index1);
+	let isTrue = 0;
+	for (i = 0; i < size.length; i++) {
+		let comparator = returnValue(element2, i);
+		console.log(value1);
+		console.log(comparator);
+		console.log(isTrue);
+		console.log("________________");
+		if (value1 == comparator)
+			isTrue = 1;
+	}
+
+	if (isTrue == 1) {
+		alert(returnValue(element1, index1) + " pertence à " + grouped[element2][0]);
+		return true;
+	} else {
+		alert(returnValue(element1, index1) + " não pertence à " + grouped[element2][0]);
+		return false
+	}
+}
+
+function naopertence() {
+	element1 = document.getElementById("naopertence1").value;
+	element2 = document.getElementById("naopertence2").value;
+	index1 = document.getElementById("naopertenceIndex1").value;
+	return !pertence(element1, element2, index1);
+}

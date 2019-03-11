@@ -1,99 +1,77 @@
 <html>
-    <head>
-        <style>
-            #painel{
-                float : right;
-            }
-        </style>
-        <meta charset="UTF-8">
-        <script type="text/javascript" src="../scripts/js.js"></script>
-    </head>
 
-    <body>
+<head>
+    <style>
+        #painel {
+            float: right;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../scripts/js.js"></script>
+</head>
 
-        <h1>Matemática Discreta</h1>
-        <div id="painel">
-                <table>
-                        <tr>
-                            <td colspan="5">
-                                    <p>Informe o ID dos dois conjuntos/elementos EM ORDEM </p> 
-                            </td>    
-                        </tr>
-                        <tr>
-                                <td>ID:<input type="text" id="pertence1" ></td>
-                                <td>Index:<input type="text" id="pertenceIndex1" ></td> 
-                                <td>∈</td>
-                                <td>ID<input type="text" id="pertence2" ></td>
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <!-- <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr>
-                        <tr>
-                                <td><input type="text" id="pertence1" >∈</td>
-                                <td><input type="text" id="pertence2" ></td> 
-                                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-                        </tr> -->
-    
-                </table>
-            </div>
-        <h3>Selecione o arquivo</h3>
-	    <input type="file" id="file">
-	    <p>Clique para a leitura do arquivo.</p>
-        <button onclick="txtInput()">Read</button><br />
-	    <h1>Conteúdo lido</h1>
-        <textarea id="inputTextToSave"></textarea> <br />
-	   <!-- <h1>Save the file</h1>
+<body>
+
+    <h1>Matemática Discreta</h1>
+    <div id="painel">
+        <table>
+            <tr>
+                <th colspan="5">Ações com os conjuntos</th>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <h1>Pertinência - ∈ </h1>
+                    <p>Informe o ID dos dois conjuntos/elementos EM ORDEM </p>
+                </td>
+            </tr>
+            <tr>
+                <td>ID:<input type="text" id="pertence1"></td>
+                <td>Index:<input type="text" id="pertenceIndex1"></td>
+                <td>∈</td>
+                <td>ID<input type="text" id="pertence2"></td>
+                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <h1>Pertinência -não ∈ </h1>
+                    <p>Informe o ID dos dois conjuntos/elementos EM ORDEM </p>
+                </td>
+            </tr>
+            <tr>
+                <td>ID:<input type="text" id="naopertence1"></td>
+                <td>Index:<input type="text" id="naopertenceIndex1"></td>
+                <td>∈</td>
+                <td>ID<input type="text" id="naopertence2"></td>
+                <td><input type="button" value="não pertence?" onClick="naopertence()"></td>
+            </tr>
+
+        </table>
+    </div>
+
+    <h2>
+        Entrada dos dados
+    </h2>
+    <h3>Selecione o arquivo</h3>
+    <input type="file" id="file">
+    <p>Clique para a leitura do arquivo.</p>
+    <button onclick="txtInput()">Read</button><br />
+    <h1>Conteúdo lido</h1>
+    <textarea id="inputTextToSave"></textarea> <br />
+    <!-- <h1>Save the file</h1>
 	    <button onclick="savefile(  )">Save</button>
         <p id="dlink">Click save button to generate download link.</p>-->
-        
-        <button onclick="setGroups()">Set Groups</button>
-        <h1>Conjuntos</h1>
-        <textarea id="inputGroups"></textarea>
 
-        <h1>Elementos</h1>
-        <textarea id="inputElements"></textarea>
+    <button onclick="setGroups()">Set Groups</button>
+    <h1>Conjuntos</h1>
+    <textarea id="inputGroups"></textarea>
 
-        <h1>Valores</h1>
-        <textarea id="inputValues"></textarea>
+    <h1>Elementos</h1>
+    <textarea id="inputElements"></textarea>
+
+    <h1>Valores</h1>
+    <textarea id="inputValues"></textarea>
 
 
-    </body>
+</body>
+
 </html>
