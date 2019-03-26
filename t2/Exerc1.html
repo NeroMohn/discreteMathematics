@@ -13,62 +13,93 @@
 <body>
 
     <h1>Matemática Discreta</h1>
-    <div id="painel">
-        <table>
-            <tr>
-                <th colspan="5">Ações com os conjuntos</th>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <h1>Pertinência - ∈ </h1>
-                    <p>Informe o ID dos dois conjuntos/elementos EM ORDEM </p>
-                </td>
-            </tr>
-            <tr>
-                <td>ID:<input type="text" id="pertence1"></td>
-                <td>Index:<input type="text" id="pertenceIndex1"></td>
-                <td>∈</td>
-                <td>ID<input type="text" id="pertence2"></td>
-                <td><input type="button" value="Pertence?" onClick="pertence()"></td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    <h1>Pertinência -não ∈ </h1>
-                    <p>Informe o ID dos dois conjuntos/elementos EM ORDEM </p>
-                </td>
-            </tr>
-            <tr>
-                <td>ID:<input type="text" id="naopertence1"></td>
-                <td>Index:<input type="text" id="naopertenceIndex1"></td>
-                <td>∈</td>
-                <td>ID<input type="text" id="naopertence2"></td>
-                <td><input type="button" value="não pertence?" onClick="naopertence()"></td>
-            </tr>
 
-        </table>
-    </div>
     <h2>
         Entrada dos dados
     </h2>
-    <h3>Selecione o arquivo</h3>
-    <input type="file" id="file">
-    <p>Clique para a leitura do arquivo.</p>
-    <button onclick="txtInput()">Read</button><br />
-    <h1>Conteúdo lido</h1>
-    <textarea id="inputTextToSave"></textarea> <br />
-    <!-- <h1>Save the file</h1>
-	    <button onclick="savefile(  )">Save</button>
-        <p id="dlink">Click save button to generate download link.</p>-->
-
-    <button onclick="setGroups()">Set Groups</button>
+    <h3>Informe o conjunto A, separando os elementos por vírgula(,)</h3>
+    A: <input type="text" id="textA">
+    <h3>Informe o conjunto B, separando os elementos por vírgula(,)</h3>
+    B: <input type="text" id="textB">
+    <p>Clique para a leitura dos dados.</p>
+    <button onclick="txtInput()">Ler</button><br />
     <h1>Conjuntos</h1>
-    <textarea id="inputGroups"></textarea>
+    A:<textarea id="inputGroupsA"></textarea>
+    B:<textarea id="inputGroupsB"></textarea>
 
-    <h1>Elementos</h1>
-    <textarea id="inputElements"></textarea>
+    <h2>Relações</h2>
 
-    <h1>Valores</h1>
-    <textarea id="inputValues"></textarea>
+    <table>
+        <tr>
+            <td>
+                Relações
+            </td>
+            <td>
+                Saída
+            </td>
+            <td>
+                Executar
+            </td>
+        </tr>
+        <tr>
+            <td>
+                >
+            </td>
+            <td>
+                <input type="text" id="maiorQue" >
+            </td>
+            <td>
+                <input type="button" onclick="maiorQue()" value="Executar">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <
+            </td>
+            <td>
+                <input type="text" id="menorQue" >
+            </td>
+            <td>
+                <input type="button" onclick="menorQue()" value="Executar">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                =
+            </td>
+            <td>
+                <input type="text" id="igualA" >
+            </td>
+            <td>
+                <input type="button" onclick="igualA()" value="Executar">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                X²
+            </td>
+            <td>
+                <input type="text" id="quadradoDe" >
+            </td>
+            <td>
+                <input type="button" onclick="quadradoDe()" value="Executar">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                √ x
+            </td>
+            <td>
+                <input type="text" id="raizQuadradoDe" >
+            </td>
+            <td>
+                <input type="button" onclick="raizQuadradaDe()" value="Executar">
+            </td>
+        </tr>
+
+    </table>
 
 
 </body>
