@@ -2,8 +2,13 @@ let conjuntoA;
 let conjuntoB
 let groupA = new Array();
 let groupB = new Array();
-let groupALength;
-let groupBLength;
+let injetora;
+let sobrejetora;
+let total;
+let monomorfismo;
+let epimorfismo;
+let isomorfismo;
+let funcional;
 
 function nullFilter(value) {
 	return value != null;
@@ -41,7 +46,14 @@ function returnValueB(index) {
 }
 
 function maiorQue(){
-    let resultado =new  Array();
+    funcional="1"
+     injetora="1";
+     sobrejetora="1";
+     total="1";
+     monomorfismo="1";
+     epimorfismo="1";
+     isomorfismo="1";
+     resultado =new  Array();
     for(i=0;i<groupA.length;i++){
         for(j=0; j<groupB.length;j++){
             if(groupA[i]>groupB[j]){
@@ -50,13 +62,45 @@ function maiorQue(){
             }
         }
     }
+
+    for(i=0;i<groupB.length;i++){
+        for(j=0;j<resultado.length;j++){
+            if(groupB[i]!=resultado[j][1]){
+                sobrejetora = 0;
+            }
+        }
+    }
+
+    for(i=0;i<groupA.length;i++){
+        for(j=0;j<resultado.length;j++){
+            if(groupB[i]!=resultado[j][0]){
+                injetora = 0;
+            }
+        }
+    }
+
+
     for(i=0;i<resultado.length;i++){
     document.getElementById("maiorQue").value +="("+resultado[i]+")";
     }
+    if(injetora == 1)
+        document.getElementById("maiorQueClassificacao").value +="|Injetora| ";
+    if(sobrejetora == 1)
+        document.getElementById("maiorQueClassificacao").value +="|Sobrejetora| ";
+    if(sobrejetora == 1 && injetora ==1)
+        document.getElementById("maiorQueClassificacao").value +="|Total| ";
+
 return resultado;
 }
 
 function menorQue(){
+    funcional="1"
+    injetora="";
+    sobrejetora="";
+    total="";
+    monomorfismo="";
+    epimorfismo="";
+    isomorfismo="";
     let resultado =new  Array();
     for(i=0;i<groupA.length;i++){
         for(j=0; j<groupB.length;j++){
@@ -73,6 +117,13 @@ return resultado;
 }
 
 function igualA(){
+    funcional="1"
+    injetora="";
+    sobrejetora="";
+    total="";
+    monomorfismo="";
+    epimorfismo="";
+    isomorfismo="";
     let resultado =new  Array();
     for(i=0;i<groupA.length;i++){
         for(j=0; j<groupB.length;j++){
@@ -89,6 +140,13 @@ return resultado;
 }
 
 function quadradoDe(){
+    funcional="1"
+    injetora="";
+    sobrejetora="";
+    total="";
+    monomorfismo="";
+    epimorfismo="";
+    isomorfismo="";
     let resultado =new  Array();
     for(i=0;i<groupA.length;i++){
         for(j=0; j<groupB.length;j++){
@@ -105,6 +163,13 @@ return resultado;
 }
 
 function raizQuadradaDe(){
+    funcional="1"
+    injetora="";
+    sobrejetora="";
+    total="";
+    monomorfismo="";
+    epimorfismo="";
+    isomorfismo="";
     let resultado =new  Array();
     for(i=0;i<groupA.length;i++){
         for(j=0; j<groupB.length;j++){
